@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FJ Tech - Soluções Tecnológicas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <img src="logo.png" class="logo" alt="FJ Tech">
+      <nav>
+        <a href="#sobre">Quem Somos</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#formacoes">Formações</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#fale-connosco">Fale Connosco</a>
+      </nav>
+      <button class="btn-header" onclick="scrollToSection('fale-connosco')">Diagnóstico gratuito</button>
+    </div>
+  </header>
+
+  <section id="hero">
+    <div class="fjtech-3d-full">
+      <div class="fjtech-3d">
+        <span>F</span>
+        <span>J</span>
+        <span class="space"></span>
+        <span>T</span>
+        <span>E</span>
+        <span>C</span>
+        <span>H</span>
+      </div>
+    </div>
+    <div class="container">
+      <div class="hero-content reveal">
+        <span class="tag">FJ Tech • Soluções Tecnológicas</span>
+        <h1>Blindamos empresas contra falhas, ataques e caos digital.</h1>
+        <p class="hero-desc">Transformamos negócios em sistemas digitais seguros, automatizados e escaláveis.</p>
+        <p class="hero-tags">Infraestrutura • Cibersegurança • Redes • Automação • Desenvolvimento</p>
+        <button class="btn-primary" onclick="scrollToSection('fale-connosco')">
+          Diagnóstico gratuito <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag">Quem Somos</span>
+        <h2>A FJ Tech é uma empresa de tecnologia focada em soluções completas de TI para empresas.</h2>
+      </div>
+      
+      <div class="sobre-objetivo reveal">
+        <h3>Nosso objectivo é simples:</h3>
+        <p class="destaque">Transformamos ideias em soluções digitais, apoiando pessoas e negócios com tecnologia segura e eficiente.</p>
+        <p>Contamos com especialistas com expertise comprovada em soluções tecnológicas</p>
+    </div>
+
+      <div class="section-subheader reveal">
+        <h3>Actuamos em:</h3>
+      </div>
+      <div class="atuamos-grid">
+        <div class="atuamos-card reveal">
+          <i class="fas fa-network-wired"></i>
+          <h4>Redes e infraestrutura</h4>
+        </div>
+        <div class="atuamos-card reveal">
+          <i class="fas fa-shield-alt"></i>
+          <h4>Cibersegurança</h4>
+        </div>
+        <div class="atuamos-card reveal">
+          <i class="fas fa-code"></i>
+          <h4>Desenvolvimento de sistemas</h4>
+        </div>
+        <div class="atuamos-card reveal">
+          <i class="fas fa-robot"></i>
+          <h4>Automação de processos</h4>
+        </div>
+        <div class="atuamos-card reveal">
+          <i class="fas fa-headset"></i>
+          <h4>Suporte informático e manutenção</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="processo">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag">Como Trabalhamos</span>
+        <h2>Processo</h2>
+      </div>
+      <div class="processo-grid">
+        <div class="processo-item reveal">
+          <span class="num">01</span>
+          <h3>Diagnóstico</h3>
+          <p>Analisamos a estrutura atual da empresa.</p>
+        </div>
+        <div class="processo-item reveal">
+          <span class="num">02</span>
+          <h3>Planeamento</h3>
+          <p>Criamos uma solução personalizada.</p>
+        </div>
+        <div class="processo-item reveal">
+          <span class="num">03</span>
+          <h3>Implementação</h3>
+          <p>Executamos toda a infraestrutura ou sistema.</p>
+        </div>
+        <div class="processo-item reveal">
+          <span class="num">04</span>
+          <h3>Suporte contínuo</h3>
+          <p>Mantemos e melhoramos o sistema.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicos">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag">O que fazemos</span>
+        <h2>Serviços</h2>
+      </div>
+      <div class="servicos-grid">
+        <div class="servico-card reveal">
+          <h3>Desenvolvimento de Sites</h3>
+          <ul>
+            <li>Sites institucionais</li>
+            <li>Lojas online (e-commerce)</li>
+            <li>Sistemas personalizados</li>
+            <li>Manutenção e optimização</li>
+          </ul>
+          <button class="btn-servico" onclick="scrollToSection('fale-connosco')">Solicitar serviço</button>
+        </div>
+        <div class="servico-card reveal">
+          <h3>Tráfego Pago</h3>
+          <ul>
+            <li>Facebook Ads</li>
+            <li>Instagram Ads</li>
+            <li>Campanhas de vendas</li>
+            <li>Crescimento de alcance</li>
+          </ul>
+          <button class="btn-servico" onclick="scrollToSection('fale-connosco')">Solicitar serviço</button>
+        </div>
+        <div class="servico-card reveal">
+          <h3>Cibersegurança</h3>
+          <ul>
+            <li>Proteção de dados</li>
+            <li>Prevenção de ataques</li>
+            <li>Configuração de segurança</li>
+            <li>Auditoria de sistemas</li>
+          </ul>
+          <button class="btn-servico" onclick="scrollToSection('fale-connosco')">Solicitar serviço</button>
+        </div>
+        <div class="servico-card reveal">
+          <h3>Sistemas de Vigilância (CCTV)</h3>
+          <ul>
+            <li>Instalação de câmeras</li>
+            <li>Monitoramento remoto</li>
+            <li>Gravação e backup</li>
+          </ul>
+          <button class="btn-servico" onclick="scrollToSection('fale-connosco')">Solicitar serviço</button>
+        </div>
+        <div class="servico-card reveal">
+          <h3>Automações</h3>
+          <ul>
+            <li>Bots de WhatsApp</li>
+            <li>Automação de processos</li>
+            <li>Integração de sistemas</li>
+          </ul>
+          <button class="btn-servico" onclick="scrollToSection('fale-connosco')">Solicitar serviço</button>
+        </div>
+        <div class="servico-card reveal">
+          <h3>Suporte Informático</h3>
+          <ul>
+            <li>Reparação de PCs</li>
+            <li>Remoção de vírus</li>
+            <li>Formatação</li>
+            <li>Otimização de sistemas</li>
+          </ul>
+          <button class="btn-servico" onclick="scrollToSection('fale-connosco')">Solicitar serviço</button>
+        </div>
+        <div class="servico-card reveal">
+          <h3>Marketing Digital</h3>
+          <ul>
+            <li>Gestão de redes sociais</li>
+            <li>Criação de conteúdo</li>
+            <li>Estratégia de crescimento</li>
+          </ul>
+          <button class="btn-servico" onclick="scrollToSection('fale-connosco')">Solicitar serviço</button>
+        </div>
+        <div class="servico-card reveal">
+          <h3>Redes e Infraestrutura</h3>
+          <ul>
+            <li>Instalação de redes</li>
+            <li>Wi-Fi empresarial</li>
+            <li>Servidores</li>
+            <li>Administração de redes</li>
+          </ul>
+          <button class="btn-servico" onclick="scrollToSection('fale-connosco')">Solicitar serviço</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="formacoes">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag">Formações</span>
+        <h2>Certificações Profissionais</h2>
+      </div>
+      <div class="form-grid">
+        <div class="form-card reveal">
+          <h3>Cisco Networking Academy</h3>
+          <ul>
+            <li>Introduction to Cybersecurity</li>
+            <li>Linux Essentials</li>
+            <li>Network Technician Path</li>
+            <li>Gerenciamento de Ameaças Cibernéticas</li>
+          </ul>
+        </div>
+        <div class="form-card reveal">
+          <h3>Formações Profissionais</h3>
+          <ul>
+            <li>Administração de Sistemas e Redes</li>
+            <li>Suporte Informático</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag">Portfólio</span>
+        <h2>Projectos Reais</h2>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-item reveal"><h3>WAN Xai-Xai ↔ Beira</h3><p>Interligação de redes empresariais entre cidades.</p></div>
+        <div class="portfolio-item reveal"><h3>Desenvolvimento Web</h3><p>Sites empresariais e sistemas online.</p></div>
+        <div class="portfolio-item reveal"><h3>Suporte Técnico e Help Desk</h3><p>Atendimento e resolução de problemas técnicos.</p></div>
+        <div class="portfolio-item reveal"><h3>Redes e Infraestrutura</h3><p>Configuração de redes empresariais completas.</p></div>
+        <div class="portfolio-item reveal"><h3>Cibersegurança</h3><p>Proteção e análise de vulnerabilidades.</p></div>
+        <div class="portfolio-item reveal"><h3>Automações de Sistemas</h3><p>Automação de tarefas e processos empresariais.</p></div>
+        <div class="portfolio-item reveal"><h3>Administração de Servidores</h3><p>Gestão de servidores Windows/Linux.</p></div>
+        <div class="portfolio-item reveal"><h3>Infraestrutura Empresarial</h3><p>Planeamento completo de TI para empresas.</p></div>
+        <div class="portfolio-item reveal"><h3>Projectos de Estágio</h3><p>Implementações reais em ambiente profissional.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="resultados">
+    <div class="container">
+      <div class="section-header reveal center">
+        <span class="tag">Números</span>
+        <h2>Resultados</h2>
+      </div>
+      <div class="resultados-grid">
+        <div class="resultado-item reveal"><strong data-target="50">0</strong><span>projetos entregues</span></div>
+        <div class="resultado-item reveal"><strong data-target="100">0</strong><span>formações concluídas</span></div>
+        <div class="resultado-item reveal"><strong data-target="99">0</strong><span>% satisfação de clientes</span></div>
+        <div class="resultado-item reveal">
+        <strong class="infinity-static">∞</strong>
+        <span>sistemas em empresas reais</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <div class="section-header reveal center">
+        <span class="tag">Dúvidas</span>
+        <h2>FAQ</h2>
+      </div>
+      <div class="faq-container">
+        <div class="faq-item reveal">
+          <button class="faq-pergunta">Quais serviços vocês oferecem? <i class="fas fa-chevron-down"></i></button>
+          <div class="faq-resposta"><p>Desenvolvimento, redes, cibersegurança, automação, suporte e marketing digital.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-pergunta">Trabalham com pequenas empresas? <i class="fas fa-chevron-down"></i></button>
+          <div class="faq-resposta"><p>Sim, trabalhamos com pequenas, médias e grandes empresas.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-pergunta">As formações são certificadas? <i class="fas fa-chevron-down"></i></button>
+          <div class="faq-resposta"><p>Sim, incluindo Cisco Networking Academy.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-pergunta">Vocês fazem suporte contínuo? <i class="fas fa-chevron-down"></i></button>
+          <div class="faq-resposta"><p>Sim, oferecemos suporte e manutenção contínua.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fale-connosco">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag">Fale Connosco</span>
+        <h2>Solicitar serviço</h2>
+      </div>
+      <div class="contacto-grid reveal">
+        <div class="contacto-info">
+          <p><i class="fas fa-map-marker-alt"></i> Maputo, Moçambique</p>
+          <p><i class="fas fa-envelope"></i> suportefjtech@gmail.com</p>
+          <div class="social">
+            <a href="https://www.instagram.com/fjtech_center" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@fjtech_center" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://wa.me/258877693574" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <form>
+        <input type="text" name="nome" placeholder="Nome" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <textarea name="servico" placeholder="Solicitar serviço" required></textarea>
+          <button type="submit" class="btn-primary">Enviar</button>
+          <p id="msg"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-logo">FJ TECH</div>
+      <div class="footer-bottom">
+        <p>© <span id="ano"></span> FJ Tech. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
