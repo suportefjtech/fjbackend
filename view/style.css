@@ -751,11 +751,25 @@ body {
 }
 
 /* MOBILE: toque */
+.atuamos-card {
+  transition: all 0.3s ease;
+}
+
+/* PC (mouse) */
+.atuamos-card:hover {
+  background: var(--dark);
+  color: var(--white);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(10,47,92,0.25);
+}
+
+/* MOBILE (toque) */
 .atuamos-card:active {
   background: var(--dark);
   color: var(--white);
-  transform: scale(0.98);
+  transform: scale(0.97);
 }
+
 .portfolio-item {
   transition: transform 0.2s ease, box-shadow 0.3s ease;
   transform-style: preserve-3d;
