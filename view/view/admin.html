@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel Admin - FJ Tech</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #38bdf8;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid #334155;
+      text-align: left;
+    }
+
+    th {
+      background: #1e293b;
+    }
+
+    tr:nth-child(even) {
+      background: #111827;
+    }
+
+    .loading {
+      margin-top: 20px;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>📊 Painel Admin - FJ Tech</h1>
+
+<div class="loading" id="status">A carregar pedidos...</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Serviço</th>
+    </tr>
+  </thead>
+  <tbody id="tabela"></tbody>
+</table>
+
+<script type="module">
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+
+// 🔥 TROCA AQUI PELA TUA ANON KEY DO SUPABASE
+const supabase = createClient(
+  "https://lkcurpkkbmrvxtsfwqli.supabase.co",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxrY3VycGtrYm1ydnh0c2Z3cWxpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgwMzQ1MTEsImV4cCI6MjA5MzYxMDUxMX0.E-5GHLZeAJx1G1lhUdIUtQsra6rUP2CxSQmbuAmxj4c"
+);
+
+async function carregarPedidos() {
+  const status = document.getElementById("status");
+  const tabela = document.getElementById("tabela");
+
+  const { data, error } = await supabase
+    .from("Pedidos")
+    .select("*");
+
+  if (error) {
+    console.log(error);
+    status.innerText = "Erro ao carregar pedidos";
+    return;
+  }
+
+  status.style.display = "none";
+
+  data.forEach(pedido => {
+    const row = `
+      <tr>
+        <td>${pedido.nome}</td>
+        <td>${pedido.email}</td>
+        <td>${pedido.servico}</td>
+      </tr>
+    `;
+    tabela.innerHTML += row;
+  });
+}
+
+carregarPedidos();
+</script>
+
+</body>
+</html>
