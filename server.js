@@ -45,7 +45,7 @@ app.post("/enviar", async (req, res) => {
       service: "gmail",
       auth: {
         user: "suportefjtech@gmail.com",
-        pass: "pwynuppjwkcewwge"
+        pass: "vumciczepuodxcik"
       }
     });
 
