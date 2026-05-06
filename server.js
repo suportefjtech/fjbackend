@@ -26,79 +26,34 @@ app.post("/enviar", async (req, res) => {
   console.log("DADOS A ENVIAR:", { nome, email, servico });
 
   try {
-    // 🔹 SUPABASE INSERT
     const { data, error } = await supabase
       .from("Pedidos")
       .insert([{ nome, email, servico }]);
 
     if (error) {
       console.log("❌ SUPABASE ERROR:", error);
-      return res.status(500).json({ ok: false, error });
+      return res.status(500).json({ ok: false });
     }
 
-    console.log("✅ SUPABASE OK:", data);
+    console.log("✅ GUARDADO NA BASE");
 
-    // 🔹 EMAIL 
-    // 
-    // 🔹 EMAIL (DESATIVADO)
-/*
-let transporter = nodemailer.createTransport({...});
-
-await transporter.sendMail({...});
-*/
-    let transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: "suportefjtech@gmail.com",
-        pass: "vumciczepuodxcik"
-      }
+    return res.json({
+      ok: true,
+      message: "Pedido enviado com sucesso"
     });
-
-    try {
-      console.log("📨 A ENVIAR EMAIL...");
-
-      await transporter.sendMail({
-        from: "FJ Tech <suportefjtech@gmail.com>",
-        replyTo: email,
-        to: "suportefjtech@gmail.com",
-        subject: "Novo pedido FJ Tech",
-        text: `Nome: ${nome}\nEmail: ${email}\nServiço: ${servico}`
-      });
-
-      console.log("✅ EMAIL ENVIADO COM SUCESSO");
-
-      return res.json({
-        ok: true,
-        message: "Tudo enviado com sucesso"
-      });
-
-    } catch (err) {
-      console.log("❌ EMAIL ERROR:", err);
-
-      return res.status(500).json({
-        ok: false,
-        message: "Dados guardados mas email falhou",
-        error: err.message
-      });
-    }
 
   } catch (err) {
     console.log("SERVER ERROR:", err);
 
     return res.status(500).json({
       ok: false,
-      message: "Erro no servidor",
-      error: err.message
+      message: "Erro no servidor"
     });
   }
 });
+
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   console.log("Servidor online na porta " + PORT);
-});
-
-return res.json({
-  ok: true,
-  message: "Pedido enviado com sucesso"
 });
