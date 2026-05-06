@@ -28,7 +28,7 @@ app.post("/enviar", async (req, res) => {
   try {
     // 🔹 SUPABASE INSERT
     const { data, error } = await supabase
-      .from("pedidos")
+      .from("Pedidos")
       .insert([{ nome, email, servico }]);
 
   if (error) {
