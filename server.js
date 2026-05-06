@@ -31,14 +31,12 @@ app.post("/enviar", async (req, res) => {
       .from("Pedidos")
       .insert([{ nome, email, servico }]);
 
-  if (error) {
-  console.log("❌ SUPABASE ERROR:", JSON.stringify(error, null, 2));
-} else {
-  console.log("✅ SUPABASE OK:", data);
-}
     if (error) {
+      console.log("❌ SUPABASE ERROR:", error);
       return res.status(500).json({ ok: false, error });
     }
+
+    console.log("✅ SUPABASE OK:", data);
 
     // 🔹 EMAIL
     let transporter = nodemailer.createTransport({
@@ -49,24 +47,41 @@ app.post("/enviar", async (req, res) => {
       }
     });
 
-    await transporter.sendMail({
-      from: "FJ Tech <suportefjtech@gmail.com>",
-      replyTo: email,
-      to: "suportefjtech@gmail.com",
-      subject: "Novo pedido FJ Tech",
-      text: `Nome: ${nome}\nEmail: ${email}\nServiço: ${servico}`
-    });
+    try {
+      console.log("📨 A ENVIAR EMAIL...");
 
-    return res.json({ ok: true, message: "Enviado com sucesso" });
+      await transporter.sendMail({
+        from: "FJ Tech <suportefjtech@gmail.com>",
+        replyTo: email,
+        to: "suportefjtech@gmail.com",
+        subject: "Novo pedido FJ Tech",
+        text: `Nome: ${nome}\nEmail: ${email}\nServiço: ${servico}`
+      });
+
+      console.log("✅ EMAIL ENVIADO COM SUCESSO");
+
+      return res.json({
+        ok: true,
+        message: "Tudo enviado com sucesso"
+      });
+
+    } catch (err) {
+      console.log("❌ EMAIL ERROR:", err);
+
+      return res.status(500).json({
+        ok: false,
+        message: "Dados guardados mas email falhou",
+        error: err.message
+      });
+    }
 
   } catch (err) {
     console.log("SERVER ERROR:", err);
-    return res.status(500).json({ ok: false, message: "Erro no servidor" });
+
+    return res.status(500).json({
+      ok: false,
+      message: "Erro no servidor",
+      error: err.message
+    });
   }
-});
-
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => {
-  console.log("Servidor online na porta " + PORT);
 });
