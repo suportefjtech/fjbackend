@@ -38,7 +38,14 @@ app.post("/enviar", async (req, res) => {
 
     console.log("✅ SUPABASE OK:", data);
 
-    // 🔹 EMAIL
+    // 🔹 EMAIL 
+    // 
+    // 🔹 EMAIL (DESATIVADO)
+/*
+let transporter = nodemailer.createTransport({...});
+
+await transporter.sendMail({...});
+*/
     let transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -89,4 +96,9 @@ const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   console.log("Servidor online na porta " + PORT);
+});
+
+return res.json({
+  ok: true,
+  message: "Pedido enviado com sucesso"
 });
