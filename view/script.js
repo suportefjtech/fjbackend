@@ -33,11 +33,11 @@ async function send(e) {
     submitBtn.innerText = "A enviar...";
   }
 
-  // dados
+  // dados (OBRIGATÓRIO)
   const data = {
-    nome: form.querySelector('[name="nome"]').value,
-    email: form.querySelector('[name="email"]').value,
-    servico: form.querySelector('[name="servico"]').value
+    nome: form.querySelector('[name="nome"]')?.value,
+    email: form.querySelector('[name="email"]')?.value,
+    servico: form.querySelector('[name="servico"]')?.value
   };
 
   try {
@@ -92,60 +92,4 @@ document.querySelectorAll(".faq-pergunta").forEach(btn => {
 
     if (!isActive) item.classList.add("active");
   });
-});
-
-// =========================
-// INIT GERAL
-// =========================
-document.addEventListener("DOMContentLoaded", () => {
-
-  const form = document.querySelector("form");
-  if (form) form.addEventListener("submit", send);
-
-  const ano = document.getElementById("ano");
-  if (ano) ano.innerText = new Date().getFullYear();
-
-  document.querySelectorAll(".servico-card, .servico-giant").forEach(el => {
-    el.addEventListener("click", () => {
-      scrollToSection("fale-connosco");
-    });
-  });
-
-  document.querySelectorAll('.atuamos-card').forEach(card => {
-    card.addEventListener('click', () => {
-      document.querySelectorAll('.atuamos-card')
-        .forEach(c => c.classList.remove('active'));
-
-      card.classList.add('active');
-    });
-  });
-
-  const cards = document.querySelectorAll('.portfolio-item');
-
-  cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-
-      const rotateX = (y - centerY) / 10;
-      const rotateY = (x - centerX) / 10;
-
-      card.style.transform =
-        `rotateX(${-rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'rotateX(0deg) rotateY(0deg) translateY(0px)';
-    });
-
-    card.addEventListener('touchend', () => {
-      card.style.transform = 'scale(1)';
-    });
-  });
-
 });
