@@ -283,6 +283,18 @@ nav a:hover {
   color: var(--white);
 }
 
+/* MOBILE - efeito ao tocar */
+.atuamos-card:active {
+  transform: scale(0.97);
+  background: var(--dark);
+  color: var(--white);
+  box-shadow: 0 10px 25px rgba(10,47,92,0.2);
+}
+
+.atuamos-card:active i {
+  color: var(--white);
+}
+
 .atuamos-card i {
   font-size: 32px;
   margin-bottom: 16px;
@@ -687,36 +699,22 @@ footer {
   .footer-logo { font-size: 50px; }
 }
 
-
 @media (max-width: 600px) {
+
   .logo { height: 80px; }
 
-  .fjtech-3d span {
-    font-size: 40px;
-  }
+  .fjtech-3d span { font-size: 40px; }
+  .fjtech-3d span.space { width: 15px; }
 
-  .fjtech-3d span.space {
-    width: 15px;
-  }
-
-  .hero-content h1 {
-    font-size: 28px;
-  }
-
-  .section-header h2 {
-    font-size: 26px;
-  }
-
-  #faq h2 {
-    font-size: 30px;
-  }
+  .hero-content h1 { font-size: 28px; }
+  .section-header h2 { font-size: 26px; }
+  #faq h2 { font-size: 30px; }
 
   .servicos-grid,
   .sobre-grid,
   .form-grid,
   .portfolio-grid,
   .resultados-grid,
-  .contacto-grid,
   .processo-grid,
   .atuamos-grid {
     grid-template-columns: 1fr;
@@ -729,71 +727,31 @@ footer {
   .footer-logo {
     font-size: 32px;
   }
-}
 
-
-/* EXTRA IMPORTANTE */
-body {
-  overflow-x: hidden;
-}
-
-.atuamos-card {
-  transition: all 0.3s ease;
-  transform-style: preserve-3d;
-}
-
-/* PC: mouse */
-.atuamos-card:hover {
-  background: var(--dark);
-  color: var(--white);
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 20px 40px rgba(10,47,92,0.25);
-}
-
-/* MOBILE: toque */
-.atuamos-card {
-  transition: all 0.3s ease;
-}
-
-/* PC (mouse) */
-.atuamos-card:hover {
-  background: var(--dark);
-  color: var(--white);
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(10,47,92,0.25);
-}
-
-/* MOBILE (toque) */
-.atuamos-card:active {
-  background: var(--dark);
-  color: var(--white);
-  transform: scale(0.97);
-}
-
-.portfolio-item {
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
-  transform-style: preserve-3d;
-  perspective: 1000px;
-} 
-
-  /* 🔥 ORDEM DO FORMULÁRIO (Fale Connosco) */
+  /* 🔥 CONTACTO MOBILE CORRETO */
   .contacto-grid {
     display: flex;
     flex-direction: column;
-  }
-
-  #fale-connosco .section-header {
-    order: 0;
+    align-items: center;
   }
 
   form {
     order: 1;
     width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .form-card {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
   }
 
   .contacto-info {
     order: 2;
     margin-top: 30px;
+    text-align: center;
   }
 
   input, textarea {
@@ -803,3 +761,5 @@ body {
   .btn-primary {
     width: 100%;
   }
+
+}
