@@ -50,7 +50,8 @@ section {
 .reveal {
   opacity: 0;
   transform: translateY(40px);
-  transition: all 0.8s ease;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: opacity, transform;
 }
 
 .reveal.active {
@@ -486,6 +487,16 @@ nav a:hover {
   font-weight: 500;
 }
 
+.resultado-item strong {
+  font-size: 64px;
+  font-weight: 800;
+  color: var(--dark);
+  display: block;
+  line-height: 1;
+  opacity: 1;
+  visibility: visible;
+}
+
 .depoimento-item {
   max-width: 800px;
   margin: 0 auto 60px;
@@ -555,7 +566,13 @@ nav a:hover {
 .faq-resposta {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.faq-item.active .faq-resposta {
+  max-height: 300px;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .faq-item.active .faq-resposta {

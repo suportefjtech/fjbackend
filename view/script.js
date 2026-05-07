@@ -14,10 +14,12 @@ function scrollToSection(id) {
 async function send(e) {
   e.preventDefault();
 
+  window.scrollTo(0, window.scrollY);
   const form = e.target;
   const submitBtn = form.querySelector("button");
-  const msg = document.getElementById("msg");
   const inputs = form.querySelectorAll("input, textarea");
+  const msg = document.getElementById("msg");
+if (!msg) return;
 
   // validação
   for (let i of inputs) {
@@ -33,7 +35,6 @@ async function send(e) {
     submitBtn.innerText = "A enviar...";
   }
 
-  // dados (OBRIGATÓRIO)
   const data = {
     nome: form.querySelector('[name="nome"]')?.value,
     email: form.querySelector('[name="email"]')?.value,
@@ -48,8 +49,15 @@ async function send(e) {
     });
 
     const text = await res.text();
+    console.log(text);
 
-    if (msg) msg.style.display = "block";
+   if (msg) {
+  msg.style.display = "block";
+  msg.style.opacity = "1";
+
+  // 👇 AQUI (coloca logo aqui)
+  msg.scrollIntoView({ behavior: "smooth", block: "center" });
+}
 
     if (res.ok) {
       if (msg) {
@@ -63,8 +71,6 @@ async function send(e) {
         msg.style.color = "red";
       }
     }
-
-    console.log(text);
 
   } catch (err) {
     console.error(err);
@@ -93,3 +99,51 @@ document.querySelectorAll(".faq-pergunta").forEach(btn => {
     if (!isActive) item.classList.add("active");
   });
 });
+
+// =========================
+// REVEAL ANIMATION FIX
+// =========================
+const reveals = document.querySelectorAll(".reveal");
+
+function showOnScroll() {
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+
+    if (top < window.innerHeight - 100) {
+      el.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", showOnScroll);
+window.addEventListener("load", showOnScroll);
+
+// =========================
+// COUNTERS ANIMAÇÃO
+// =========================
+function animateCounters() {
+  const counters = document.querySelectorAll("[data-target]");
+
+  counters.forEach(counter => {
+    const target = Number(counter.getAttribute("data-target"));
+    let current = 0;
+
+    const speed = 2;
+
+    const update = () => {
+      current += speed;
+
+      if (current < target) {
+        counter.innerText = current;
+        requestAnimationFrame(update);
+      } else {
+        counter.innerText = target;
+      }
+    };
+
+    update();
+  });
+}
+
+// dispara quando DOM carregar
+document.addEventListener("DOMContentLoaded", animateCounters);
